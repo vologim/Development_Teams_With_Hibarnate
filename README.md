@@ -1,6 +1,6 @@
 # Development team
 
-Console CRUD application interacting with database using Hibernate
+Console CRUD application interacting with database using Hibernate and PostgreSQL
 
 Entities:
 - Team (id, name, List<Developer> developers)
@@ -16,7 +16,7 @@ Flyway configuration:
 pom.xml
 ```
 Need create database:
-```sh
+```SQL
 CREATE DATABASE development_teams;
 ```
 
