@@ -34,7 +34,7 @@ public class Developer {
                             CascadeType.MERGE,
                             CascadeType.PERSIST,
                             CascadeType.REFRESH},
-                fetch = FetchType.EAGER)
+                fetch = FetchType.LAZY)
     @JoinTable(name = "developer_skills",
             joinColumns = @JoinColumn(name = "id_developer"),
             inverseJoinColumns = @JoinColumn(name = "id_skill"))

@@ -14,68 +14,74 @@ public class TeamRepositoryImpl implements TeamRepository {
 
     private final SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
     private DeveloperRepository developerRepository = null;
-    private Session session;
 
     @Override
     public void save(Team elem) {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.persist(elem);
-        session.getTransaction().commit();
-        session.close();
+        
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.persist(elem);
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
     }
 
     @Override
     public void updateById(int id, Team elem) {
         Team team = getById(id);
-        
+
         if (team == null) {
             return;
         }
         
         elem.setId(id);
-        
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        session.update(elem);
-        session.getTransaction().commit();
-        session.close();
+
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            session.update(elem);
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+        }
     }
 
     @Override
     public Team getById(int id) {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        Team team = session.get(Team.class, id);
-        session.getTransaction().commit();
-        session.close();
-
-        return team;
+        try (Session session = sessionFactory.openSession()) {
+            return (Team) session.createQuery("FROM Team t LEFT JOIN"
+                    + " FETCH t.developers WHERE t.id = " + id).getSingleResult();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            return null;
+        }
     }
 
     @Override
     public List<Team> getAll() {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        List<Team> teams = session.createQuery("FROM Team").getResultList();
-        session.getTransaction().commit();
-        session.close();
-
-        return teams;
+        try (Session session = sessionFactory.openSession()) {
+            return session.createQuery("FROM Team t LEFT JOIN"
+                + " FETCH t.developers").getResultList();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
+            return null;
+        }
     }
 
     @Override
     public void deleteById(int id) {
-        session = sessionFactory.openSession();
-        session.beginTransaction();
-        Team team = session.get(Team.class, id);
+        try (Session session = sessionFactory.openSession()) {
+            session.beginTransaction();
+            Team team = session.get(Team.class, id);
 
-        if (team != null) {
-            session.delete(team);
+            if (team != null) {
+                session.delete(team);
+            }
+
+            session.getTransaction().commit();
+        } catch (Exception ex) {
+            System.out.println("Error: " + ex.getMessage());
         }
-        
-        session.getTransaction().commit();
-        session.close();
     }
 
     @Override

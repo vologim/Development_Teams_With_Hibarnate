@@ -28,12 +28,11 @@ public class Team {
     @Column(name = "name")
     private String name;
     
-//    @Fetch(FetchMode.SUBSELECT)
     @ManyToMany(cascade = {CascadeType.DETACH, 
                             CascadeType.MERGE, 
                             CascadeType.PERSIST, 
                             CascadeType.REFRESH},
-                fetch = FetchType.EAGER)
+                fetch = FetchType.LAZY)
     @JoinTable(name = "team_developers",
             joinColumns = @JoinColumn(name = "id_team"),
             inverseJoinColumns = @JoinColumn(name = "id_developer"))
