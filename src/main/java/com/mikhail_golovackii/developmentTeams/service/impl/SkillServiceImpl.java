@@ -25,8 +25,8 @@ public class SkillServiceImpl implements SkillService{
     }
 
     @Override
-    public void updateById(int id, Skill elem) {
-        repository.updateById(id, elem);
+    public void updateById(Skill elem) {
+        repository.updateById(elem);
     }
 
     @Override

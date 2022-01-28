@@ -37,9 +37,9 @@ public class DeveloperServiceImplTest {
 
     @Test
     public void testUpdateById() {
-        service.updateById(1, getDeveloper());
+        service.updateById(getDeveloper());
 
-        verify(repository).updateById(1, getDeveloper());
+        verify(repository).updateById(getDeveloper());
     }
 
     @Test

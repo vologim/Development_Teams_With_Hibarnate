@@ -19,7 +19,7 @@ public class SkillServiceImplTest {
     private SkillRepositoryImpl repository;
     
     @InjectMocks
-    private SkillServiceImpl service;
+    private SkillServiceImpl service = new SkillServiceImpl(repository);
 
     @Before
     public void initBefore() {
@@ -35,9 +35,9 @@ public class SkillServiceImplTest {
 
     @Test
     public void testUpdateById() {
-        service.updateById(1, getSkill());
+        service.updateById(getSkill());
         
-        verify(repository).updateById(1, getSkill());
+        verify(repository).updateById(getSkill());
     }
 
     @Test

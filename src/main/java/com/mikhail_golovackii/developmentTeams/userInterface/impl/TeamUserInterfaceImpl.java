@@ -38,7 +38,7 @@ public class TeamUserInterfaceImpl implements TeamUserInterface {
             System.out.println("Enter name team: ");
             team.setName(scanner.nextLine());
 
-            controller.updateById(team.getId(), team);
+            controller.updateById(team);
             return;
         }
         System.out.println("Error. Write number!");

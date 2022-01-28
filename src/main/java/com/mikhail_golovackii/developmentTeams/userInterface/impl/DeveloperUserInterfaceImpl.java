@@ -44,7 +44,7 @@ public class DeveloperUserInterfaceImpl implements DeveloperUserInterface {
             text = sc.nextLine();
             developer.setLastName(text);
 
-            controller.updateById(developer.getId(), developer);
+            controller.updateById(developer);
             return;
         }
         System.out.println("Error. Write number!");

@@ -20,7 +20,7 @@ public class TeamServiceImplTest {
     private TeamRepositoryImpl repository;
     
     @InjectMocks
-    private TeamServiceImpl service;
+    private TeamServiceImpl service = new TeamServiceImpl(repository);
     
     @Before
     public void initBefore() {
@@ -36,9 +36,9 @@ public class TeamServiceImplTest {
 
     @Test
     public void testUpdateById() {
-        service.updateById(1, getTeam());
+        service.updateById(getTeam());
 
-        verify(repository).updateById(1, getTeam());
+        verify(repository).updateById(getTeam());
     }
 
     @Test

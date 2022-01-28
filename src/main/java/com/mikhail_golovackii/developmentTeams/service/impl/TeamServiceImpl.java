@@ -25,8 +25,8 @@ public class TeamServiceImpl implements TeamService{
     }
 
     @Override
-    public void updateById(int id, Team elem) {
-        repository.updateById(id, elem);
+    public void updateById(Team elem) {
+        repository.updateById(elem);
     }
 
     @Override

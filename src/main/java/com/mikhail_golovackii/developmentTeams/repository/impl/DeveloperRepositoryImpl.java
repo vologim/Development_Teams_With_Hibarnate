@@ -28,14 +28,12 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
     }
 
     @Override
-    public void updateById(int id, Developer elem) {
-        Developer developer = getById(id);
+    public void updateById(Developer elem) {
+        Developer developer = getById(elem.getId());
 
         if (developer == null) {
             return;
         }
-        
-        elem.setId(id);
 
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
@@ -108,7 +106,7 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
 
         if (!skills.isEmpty()) {
             developer.removeSkill(skills);
-            updateById(idDeveloper, developer);
+            updateById(developer);
         }
     }
 
@@ -133,7 +131,7 @@ public class DeveloperRepositoryImpl implements DeveloperRepository {
 
         if (!skills.isEmpty()) {
             developer.addSkill(skills);
-            updateById(idDeveloper, developer);
+            updateById(developer);
         }
     }
 }

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<testsuite tests="7" failures="0" name="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" time="0.613" errors="0" skipped="0">
+<testsuite tests="7" failures="0" name="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" time="0.586" errors="0" skipped="0">
   <properties>
     <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
     <property name="java.vm.version" value="11.0.13+8-Ubuntu-0ubuntu1.20.04"/>
@@ -63,10 +63,10 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testDeleteDeveloperFromTeam" time="0.603"/>
+  <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testDeleteDeveloperFromTeam" time="0.577"/>
   <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testSave" time="0.002"/>
   <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testUpdateById" time="0.002"/>
-  <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testGetById" time="0.003"/>
+  <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testGetById" time="0.002"/>
   <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testDeleteById" time="0.001"/>
   <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testGetAll" time="0.001"/>
   <testcase classname="com.mikhail_golovackii.developmentTeams.service.impl.TeamServiceImplTest" name="testAddDeveloperToTeam" time="0.001"/>

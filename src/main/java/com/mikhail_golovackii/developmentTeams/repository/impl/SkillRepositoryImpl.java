@@ -27,14 +27,12 @@ public class SkillRepositoryImpl implements SkillRepository {
     }
 
     @Override
-    public void updateById(int id, Skill elem) {
-        Skill skill = getById(id);
+    public void updateById(Skill elem) {
+        Skill skill = getById(elem.getId());
 
         if (skill == null) {
             return;
         }
-        
-        elem.setId(id);
 
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();

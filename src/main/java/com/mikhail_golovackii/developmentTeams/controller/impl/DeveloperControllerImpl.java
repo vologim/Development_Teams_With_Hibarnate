@@ -22,8 +22,8 @@ public class DeveloperControllerImpl implements DeveloperController{
     }
 
     @Override
-    public void updateById(int id, Developer elem) {
-        service.updateById(id, elem);
+    public void updateById(Developer elem) {
+        service.updateById(elem);
         view.updateEntity();
     }
 

@@ -25,8 +25,8 @@ public class DeveloperServiceImpl implements DeveloperService{
     }
 
     @Override
-    public void updateById(int id, Developer elem) {
-        repository.updateById(id, elem);
+    public void updateById(Developer elem) {
+        repository.updateById(elem);
     }
 
     @Override

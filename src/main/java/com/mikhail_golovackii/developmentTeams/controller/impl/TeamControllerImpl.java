@@ -22,8 +22,8 @@ public class TeamControllerImpl implements TeamController{
     }
 
     @Override
-    public void updateById(int id, Team elem) {
-        service.updateById(id, elem);
+    public void updateById(Team elem) {
+        service.updateById(elem);
         view.updateEntity();
     }
 

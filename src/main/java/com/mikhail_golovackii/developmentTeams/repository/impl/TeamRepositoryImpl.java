@@ -28,14 +28,12 @@ public class TeamRepositoryImpl implements TeamRepository {
     }
 
     @Override
-    public void updateById(int id, Team elem) {
-        Team team = getById(id);
+    public void updateById(Team elem) {
+        Team team = getById(elem.getId());
 
         if (team == null) {
             return;
         }
-        
-        elem.setId(id);
 
         try (Session session = sessionFactory.openSession()) {
             session.beginTransaction();
@@ -106,7 +104,7 @@ public class TeamRepositoryImpl implements TeamRepository {
 
         if (!developers.isEmpty()) {
             team.removeDevelopers(developers);
-            updateById(idTeam, team);
+            updateById(team);
         }
     }
 
@@ -132,7 +130,7 @@ public class TeamRepositoryImpl implements TeamRepository {
         
         if (!developers.isEmpty()) {
             team.addDevelopers(developers);
-            updateById(idTeam, team);
+            updateById(team);
         }
     }
 

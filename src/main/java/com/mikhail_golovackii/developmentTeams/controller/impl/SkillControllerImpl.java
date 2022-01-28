@@ -22,8 +22,8 @@ public class SkillControllerImpl implements SkillController{
     }
 
     @Override
-    public void updateById(int id, Skill elem) {
-        service.updateById(id, elem);
+    public void updateById(Skill elem) {
+        service.updateById(elem);
         view.updateEntity();
     }
 

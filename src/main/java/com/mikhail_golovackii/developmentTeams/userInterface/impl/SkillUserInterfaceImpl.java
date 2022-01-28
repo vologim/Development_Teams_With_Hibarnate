@@ -36,7 +36,7 @@ public class SkillUserInterfaceImpl implements SkillUserInterface {
             text = scanner.nextLine();
             skill.setName(text);
 
-            controller.updateById(skill.getId(), skill);
+            controller.updateById(skill);
             return;
         }
         System.out.println("Error. Write number!");

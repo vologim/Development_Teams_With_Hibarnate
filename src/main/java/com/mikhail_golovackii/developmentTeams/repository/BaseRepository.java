@@ -7,7 +7,7 @@ public interface BaseRepository<T> {
 
     void save(T elem);
     
-    void updateById(int id, T elem);
+    void updateById(T elem);
     
     T getById(int id);
     
